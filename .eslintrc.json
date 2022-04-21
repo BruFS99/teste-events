@@ -28,10 +28,11 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "no-param-reassign": 0, 
         "react/react-in-jsx-scope": 0,
-        // "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react/jsx-filename-extension": [0],
         "import/no-unresolved":0,
-        "semi": 0
+        "semi": 0,
+        "import/extensions": [0]
     }
 }
