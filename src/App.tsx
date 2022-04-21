@@ -1,26 +1,11 @@
-import { useEffect } from 'react'
-import { AxiosResponse, AxiosError } from 'axios'
-
-import HeroServices from 'services/Hero'
-
 import GlobalStyles from 'styles/Global'
+import Routes from 'Routes'
 
 function App() {
-  useEffect(() => {
-    HeroServices.getHeroes()
-      .then((response: AxiosResponse) => {
-        const { data } = response
-        console.log(data)
-      })
-      .catch((error: AxiosError) => {
-        console.log(error)
-      })
-  }, [])
-
   return (
     <div className="App">
       <GlobalStyles />
-      <span>App</span>
+      <Routes />
     </div>
   )
 }
