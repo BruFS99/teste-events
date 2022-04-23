@@ -5,12 +5,12 @@ import Routes from 'Routes'
 
 function App() {
   return (
-    <div className="App">
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <div className="App">
         <GlobalStyles />
         <Routes />
-      </ThemeProvider>
-    </div>
+      </div>
+    </ThemeProvider>
   )
 }
 
