@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 import Icon from 'components/atoms/Icon'
 import Action from 'components/molecules/Action'
+
+import { IRootState } from 'store/ducks/rootReducer'
+
+import useOrderByHeroes from 'store/ducks/OrderByListHeroes/useOrderByHeroes'
 
 import ToggleOff from 'assets/toggle_off.svg'
 import ToggleOn from 'assets/toggle_on.svg'
@@ -10,18 +14,23 @@ import HeroIcon from 'assets/ic_heroi.svg'
 import { Container } from './styles'
 
 function OrderByName() {
-  const [order, setOrder] = useState(false)
+  const { OrderByListHeroes } = useSelector((state: IRootState) => state)
+  const isOrderByName = OrderByListHeroes.orderBy === 'name'
+
+  const { handleOrderBy } = useOrderByHeroes()
 
   const handleClick = () => {
-    setOrder((prev) => !prev)
+    const newValue = isOrderByName ? '-name' : 'name'
+
+    handleOrderBy(newValue)
   }
 
-  const source = order ? ToggleOn : ToggleOff
+  const source = isOrderByName ? ToggleOn : ToggleOff
 
   return (
     <Container>
       <Action
-        initialValue={order}
+        initialValue={isOrderByName}
         text="Ordenar por nome - A/Z"
         source={HeroIcon}
         onChange={handleClick}
