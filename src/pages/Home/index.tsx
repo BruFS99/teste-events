@@ -1,7 +1,8 @@
 import FormSearch from 'components/molecules/FormSearch'
+import ListHeroes from 'components/organisms/ListHeroes'
 import HomeLayout from 'layout/Home'
 
-import { WrapperForm } from './styles'
+import { Content, WrapperForm } from './styles'
 
 function Home() {
   const handleSubmit = (e: string) => {
@@ -10,9 +11,12 @@ function Home() {
 
   return (
     <HomeLayout>
-      <WrapperForm>
-        <FormSearch onSubmit={handleSubmit} />
-      </WrapperForm>
+      <Content>
+        <WrapperForm>
+          <FormSearch onSubmit={handleSubmit} />
+        </WrapperForm>
+        <ListHeroes />
+      </Content>
     </HomeLayout>
   )
 }
