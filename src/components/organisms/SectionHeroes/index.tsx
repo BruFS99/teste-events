@@ -7,7 +7,9 @@ import useHeroes from 'hooks/useHeroes'
 import { Container, Header, WrapperActions, TextInfo } from './styles'
 
 function SectionHeroes() {
-  const { heroes, loading, error } = useHeroes()
+  const orderBy = '-name'
+
+  const { heroes, loading, error } = useHeroes({ orderBy })
 
   return (
     <Container>

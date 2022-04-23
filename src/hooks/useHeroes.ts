@@ -3,7 +3,11 @@ import { AxiosResponse } from 'axios'
 
 import HeroService, { IListHeroResponse, IHero } from 'services/Hero'
 
-function useHeroes() {
+interface IUserHeroes {
+  orderBy?: string
+}
+
+function useHeroes({ orderBy = 'name' }: IUserHeroes) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [heroes, setHeroes] = useState<IHero[]>([])
@@ -28,7 +32,9 @@ function useHeroes() {
   const fetchData = () => {
     setLoading(true)
 
-    HeroService.getHeroes()
+    HeroService.getHeroes({
+      orderBy,
+    })
       .then(handleSuccess)
       .catch(handleError)
       .finally(handleFinally)
