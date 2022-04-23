@@ -14,7 +14,6 @@ function useHeroes({ orderBy = 'name' }: IUserHeroes) {
 
   const handleSuccess = (response: AxiosResponse<IListHeroResponse>) => {
     const { data } = response
-
     const { results } = data.data
 
     setHeroes(results)
@@ -42,7 +41,7 @@ function useHeroes({ orderBy = 'name' }: IUserHeroes) {
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [orderBy])
 
   return {
     loading,

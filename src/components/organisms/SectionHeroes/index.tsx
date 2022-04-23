@@ -4,10 +4,14 @@ import ListHeroes from 'components/molecules/ListHeroes'
 
 import useHeroes from 'hooks/useHeroes'
 
+import { useSelector } from 'react-redux'
+import { IRootState } from 'store/ducks/rootReducer'
+
 import { Container, Header, WrapperActions, TextInfo } from './styles'
 
 function SectionHeroes() {
-  const orderBy = '-name'
+  const { OrderByListHeroes } = useSelector((state: IRootState) => state)
+  const { orderBy } = OrderByListHeroes
 
   const { heroes, loading, error } = useHeroes({ orderBy })
 
