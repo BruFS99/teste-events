@@ -1,5 +1,5 @@
 import FormSearch from 'components/molecules/FormSearch'
-import ListHeroes from 'components/organisms/ListHeroes'
+import SectionHeroes from 'components/organisms/SectionHeroes'
 import HomeLayout from 'layout/Home'
 
 import { Content, WrapperForm } from './styles'
@@ -15,7 +15,7 @@ function Home() {
         <WrapperForm>
           <FormSearch onSubmit={handleSubmit} />
         </WrapperForm>
-        <ListHeroes />
+        <SectionHeroes />
       </Content>
     </HomeLayout>
   )
