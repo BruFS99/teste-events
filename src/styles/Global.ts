@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-export interface IColors {
+interface IColors {
   red: string
   gray: string
   pink: string
@@ -9,12 +9,13 @@ export interface IColors {
   white: string
 }
 
-export interface ISpacing {
+interface ISpacing {
   quark: string
   nano: string
+  medium: string
 }
 
-export interface IFont {
+interface IFont {
   family: {
     primary: string
   }
@@ -35,10 +36,27 @@ export interface IFont {
   }
 }
 
+interface IPadding {
+  nano: string
+  xsmall: string
+  small: string
+  medium: string
+  large: string
+  xlarge: string
+}
+interface IBorder {
+  radius: {
+    nano: string
+    medium: string
+  }
+}
+
 export interface ITheme {
   colors: IColors
   spacing: ISpacing
   font: IFont
+  padding: IPadding
+  border: IBorder
 }
 
 export default createGlobalStyle<{ theme: ITheme }>`

@@ -10,6 +10,15 @@ const theme = {
   spacing: {
     quark: '4px',
     nano: '8px',
+    medium: '24px',
+  },
+  padding: {
+    nano: '6px',
+    xsmall: '8px',
+    small: '16px',
+    medium: '24px',
+    large: '32px',
+    xlarge: '55px',
   },
   font: {
     family: {
@@ -29,6 +38,11 @@ const theme = {
       semiBold: 500,
       regular: 400,
       light: 300,
+    },
+  },
+  border: {
+    radius: {
+      medium: '24px',
     },
   },
 }
