@@ -13,6 +13,7 @@ export const Container = styled.div`
 `
 
 export const Content = styled.div`
+  margin: ${({ theme }) => theme.spacing.nano};
   display: flex;
   flex: 1;
 `
