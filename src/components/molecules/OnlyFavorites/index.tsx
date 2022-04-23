@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import Action from 'components/molecules/Action'
 
@@ -19,9 +19,10 @@ function OnlyFavorites() {
   return (
     <Container>
       <Action
+        initialValue={favorites}
         text="Ordenar por nome - A/Z"
         source={source}
-        onClick={handleClick}
+        onChange={handleClick}
       />
     </Container>
   )

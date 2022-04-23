@@ -21,9 +21,10 @@ function OrderByName() {
   return (
     <Container>
       <Action
+        initialValue={order}
         text="Ordenar por nome - A/Z"
         source={HeroIcon}
-        onClick={handleClick}
+        onChange={handleClick}
       />
       <Icon src={source} size="48px" onClick={handleClick} />
     </Container>
