@@ -7,17 +7,12 @@ const api = axios.create({
 
 api.interceptors.request.use(
   async (config: AxiosRequestConfig) => {
-    const { nowTimeStamp, publicKey, hash } = generateKeyApi()
+    const { nowTimeStamp: ts, publicKey: apikey, hash } = generateKeyApi()
 
-    if (config.url && !config.url.startsWith('?')) {
-      config.url = config.url.concat('?')
-    }
-
-    const queryParams = `&ts=${nowTimeStamp}&apikey=${publicKey}&hash=${hash}`
-
-    config.url += queryParams
+    config.params = { ...config.params, ...{ ts, apikey, hash } }
     return config
   },
+
   (error) => {
     Promise.reject(error)
   }
