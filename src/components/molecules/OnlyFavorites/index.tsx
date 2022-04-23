@@ -20,7 +20,7 @@ function OnlyFavorites() {
     <Container>
       <Action
         initialValue={favorites}
-        text="Ordenar por nome - A/Z"
+        text="Somente favoritos"
         source={source}
         onChange={handleClick}
       />
