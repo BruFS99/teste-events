@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import Input from 'components/atoms/Input'
 
+import Icon from 'components/atoms/Icon'
+
 export const Form = styled.form`
   position: relative;
   width: 100%;
@@ -18,10 +20,7 @@ export const InputSearch = styled(Input)`
     color: ${({ theme }) => theme.colors.red};
   }
 `
-export const IconSearch = styled.img`
-  height: 20px;
-  width: 20px;
-
+export const IconSearch = styled(Icon)`
   position: absolute;
   top: 50%;
   left: 20px;
