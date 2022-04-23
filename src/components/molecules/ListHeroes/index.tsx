@@ -8,9 +8,10 @@ interface IListHeroes {
   loading: boolean
   error: boolean
   heroes: IHero[]
+  onChangeFavorite: Function
 }
 
-function ListHeroes({ heroes, loading, error }: IListHeroes) {
+function ListHeroes({ heroes, loading, error, onChangeFavorite }: IListHeroes) {
   if (loading) {
     return <h3>Loading...</h3>
   }
@@ -27,7 +28,9 @@ function ListHeroes({ heroes, loading, error }: IListHeroes) {
           name={hero.name}
           isFavorite={false}
           src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
-          onFavoriteChange={(value: boolean) => console.log(value)}
+          onFavoriteChange={(isFavorite: boolean) =>
+            onChangeFavorite(hero, isFavorite)
+          }
         />
       ))}
     </Container>
