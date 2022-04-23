@@ -18,8 +18,8 @@ export interface IListHeroResponse {
   }
 }
 
-function getHeroes() {
-  return api.get('/characters')
+function getHeroes(params?: Object) {
+  return api.get('/characters', { params })
 }
 
 export default {
