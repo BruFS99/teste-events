@@ -14,6 +14,7 @@ const theme = {
     xsmall: '16px',
     small: '20px',
     medium: '24px',
+    large: '30px',
   },
   padding: {
     nano: '6px',
