@@ -13,6 +13,10 @@ interface ISpacing {
   quark: string
   nano: string
   medium: string
+  xsmall: string
+  small: string
+  large: string
+  xlarge: string
 }
 
 interface IFont {
