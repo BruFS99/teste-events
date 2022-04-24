@@ -5,9 +5,10 @@ import HeroService, { IListHeroResponse, IHero } from 'services/Hero'
 
 interface IUserHeroes {
   orderBy?: string
+  search?: string | null
 }
 
-function useHeroes({ orderBy = 'name' }: IUserHeroes) {
+function useHeroes({ orderBy = 'name', search = null }: IUserHeroes) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [heroes, setHeroes] = useState<IHero[]>([])
@@ -28,12 +29,26 @@ function useHeroes({ orderBy = 'name' }: IUserHeroes) {
     setLoading(false)
   }
 
+  const getParamsFetch = () => {
+    const params = {
+      nameStartsWith: search,
+      orderBy,
+    }
+
+    if (!params.nameStartsWith) {
+      const { nameStartsWith, ...rest } = params
+      return rest
+    }
+
+    return params
+  }
+
   const fetchData = () => {
     setLoading(true)
 
-    HeroService.getHeroes({
-      orderBy,
-    })
+    const params = getParamsFetch()
+
+    HeroService.getHeroes(params)
       .then(handleSuccess)
       .catch(handleError)
       .finally(handleFinally)
@@ -41,7 +56,7 @@ function useHeroes({ orderBy = 'name' }: IUserHeroes) {
 
   useEffect(() => {
     fetchData()
-  }, [orderBy])
+  }, [orderBy, search])
 
   return {
     loading,
