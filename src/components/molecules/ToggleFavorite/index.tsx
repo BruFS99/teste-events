@@ -7,14 +7,21 @@ import Icon from 'components/atoms/Icon'
 interface IToggleFavoriteProps {
   initialValue: boolean
   onChange: Function
+  size?: string
 }
 
-function ToggleFavorite({ initialValue, onChange }: IToggleFavoriteProps) {
+function ToggleFavorite({
+  initialValue,
+  onChange,
+  size,
+}: IToggleFavoriteProps) {
+  const sizeIcon = size || '14px'
+
   return (
     <Toggle
       value={initialValue}
-      activeComponent={<Icon src={EmptyHeartIcon} size="14px" />}
-      disabledComponent={<Icon src={FullHeartIcon} size="14px" />}
+      activeComponent={<Icon src={EmptyHeartIcon} size={sizeIcon} />}
+      disabledComponent={<Icon src={FullHeartIcon} size={sizeIcon} />}
       onChange={onChange}
     />
   )
