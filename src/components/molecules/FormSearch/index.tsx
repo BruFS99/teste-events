@@ -7,9 +7,10 @@ import { Form, IconSearch, InputSearch } from './styles'
 interface IFormSearchProps {
   // eslint-disable-next-line no-unused-vars
   onSubmit: (heroSearch: string) => void
+  isLight?: boolean
 }
 
-function FormSearch({ onSubmit }: IFormSearchProps) {
+function FormSearch({ onSubmit, isLight = false }: IFormSearchProps) {
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
@@ -20,7 +21,11 @@ function FormSearch({ onSubmit }: IFormSearchProps) {
   return (
     <Form onSubmit={handleSubmit}>
       <IconSearch src={SearchBar} />
-      <InputSearch name="heroSearch" placeholder="Procure por heróis" />
+      <InputSearch
+        isLight={Boolean(isLight)}
+        name="heroSearch"
+        placeholder="Procure por heróis"
+      />
     </Form>
   )
 }
