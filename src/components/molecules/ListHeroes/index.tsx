@@ -26,7 +26,7 @@ function ListHeroes({ heroes, loading, error, onChangeFavorite }: IListHeroes) {
         <HeroCard
           key={hero.id}
           name={hero.name}
-          isFavorite={false}
+          isFavorite={Boolean(hero?.isFavorite)}
           src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
           onFavoriteChange={(isFavorite: boolean) =>
             onChangeFavorite(hero, isFavorite)
