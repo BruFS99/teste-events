@@ -9,6 +9,12 @@ export interface IHero {
   }
   description: string
   isFavorite: boolean
+  comics: {
+    available: string
+  }
+  series: {
+    available: string
+  }
 }
 
 export interface IHeroResponse {
