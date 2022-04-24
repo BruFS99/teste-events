@@ -8,3 +8,11 @@ export const Container = styled.div`
   max-width: 1368px;
   margin: ${({ theme }) => theme.spacing.medium} auto;
 `
+export const ContainerLoading = styled.div`
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`

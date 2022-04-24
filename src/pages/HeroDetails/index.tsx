@@ -1,16 +1,15 @@
 import { useParams } from 'react-router-dom'
 
 import HeroDetailsLayout from 'layout/HeroDetails'
+
+import Loading from 'components/atoms/Loading'
 import SectionHero from 'components/organisms/SectionHero'
 import ListComics from 'components/organisms/ListComics'
 
 import useHero from 'hooks/useHero'
 import useHeroComics from 'hooks/useHeroComics'
 
-import { IComicDate } from 'services/Hero'
-import { getDateFormatedBR } from 'utils/Date'
-
-import { Container } from './styles'
+import { Container, ContainerLoading } from './styles'
 
 function HeroDetails() {
   const { id } = useParams()
@@ -25,7 +24,11 @@ function HeroDetails() {
   const dateLastComicFormatted = getDateFormatedBR(dateLastComic)
 
   if (loading) {
-    return <h3>loading ... </h3>
+    return (
+      <ContainerLoading>
+        <Loading />
+      </ContainerLoading>
+    )
   }
 
   return (
