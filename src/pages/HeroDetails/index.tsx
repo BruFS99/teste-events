@@ -15,13 +15,7 @@ function HeroDetails() {
   const { id } = useParams()
 
   const { hero, loading } = useHero({ id })
-  const { comics } = useHeroComics({ id })
-
-  const getLastDateComic = (date: IComicDate) => date.type === 'onsaleDate'
-
-  const lastComic = comics?.length ? comics[0] : null
-  const dateLastComic = lastComic?.dates?.find(getLastDateComic)?.date || ''
-  const dateLastComicFormatted = getDateFormatedBR(dateLastComic)
+  const { comics, dateLastComic } = useHeroComics({ id })
 
   if (loading) {
     return (
@@ -34,7 +28,12 @@ function HeroDetails() {
   return (
     <HeroDetailsLayout>
       <Container>
-        <SectionHero hero={hero} dateLastComic={dateLastComicFormatted} />
+        <SectionHero
+          isFavorite={false}
+          onChangeFavorite={() => console.log('uai')}
+          hero={hero}
+          dateLastComic={dateLastComic}
+        />
         <ListComics comics={comics} />
       </Container>
     </HeroDetailsLayout>

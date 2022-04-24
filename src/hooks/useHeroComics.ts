@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { AxiosResponse } from 'axios'
 
-import HeroService, { IComic, IComicsResponse } from 'services/Hero'
+import HeroService, { IComic, IComicDate, IComicsResponse } from 'services/Hero'
+import { getDateFormatedBR } from 'utils/Date'
 
 interface IQueryProps {
   limit?: string
@@ -22,6 +23,12 @@ function useHeroComics({
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [comics, setComics] = useState<IComic[] | null>(null)
+
+  const getLastDateComic = (date: IComicDate) => date.type === 'onsaleDate'
+
+  const lastComic = comics?.length ? comics[0] : null
+  const dateLastComic = lastComic?.dates?.find(getLastDateComic)?.date || ''
+  const dateLastComicFormatted = getDateFormatedBR(dateLastComic)
 
   const handleSuccess = (response: AxiosResponse<IComicsResponse>) => {
     const { data } = response
@@ -72,6 +79,7 @@ function useHeroComics({
     loading,
     error,
     comics,
+    dateLastComic: dateLastComicFormatted,
   }
 }
 
