@@ -11,9 +11,16 @@ interface IListHeroes {
   error: boolean
   heroes: IHero[]
   onChangeFavorite: Function
+  onClick: Function
 }
 
-function ListHeroes({ heroes, loading, error, onChangeFavorite }: IListHeroes) {
+function ListHeroes({
+  heroes,
+  loading,
+  error,
+  onChangeFavorite,
+  onClick,
+}: IListHeroes) {
   if (loading) {
     return (
       <WrapperAvailableSpace>
@@ -35,12 +42,14 @@ function ListHeroes({ heroes, loading, error, onChangeFavorite }: IListHeroes) {
       {heroes.map((hero) => (
         <HeroCard
           key={hero.id}
+          id={hero.id}
           name={hero.name}
           isFavorite={Boolean(hero?.isFavorite)}
           src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
           onFavoriteChange={(isFavorite: boolean) =>
             onChangeFavorite(hero, isFavorite)
           }
+          onClick={onClick}
         />
       ))}
     </Container>
