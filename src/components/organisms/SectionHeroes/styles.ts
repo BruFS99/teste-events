@@ -7,6 +7,7 @@ export const Container = styled.section`
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.medium};
   width: 100%;
+  height: 100%;
 `
 
 export const Header = styled.header`
