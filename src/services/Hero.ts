@@ -7,6 +7,7 @@ export interface IHero {
     path: string
     extension: string
   }
+  isFavorite: boolean
 }
 
 export interface IListHeroResponse {
