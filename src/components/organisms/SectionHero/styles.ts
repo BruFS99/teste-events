@@ -14,7 +14,7 @@ const getGap = ({ theme }: IProps) => theme.spacing.medium
 export const Container = styled.section`
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 2fr 4fr;
   grid-gap: ${getGap};
 
   height: 100%;
@@ -30,6 +30,7 @@ export const Name = styled(SubTitle)`
 
 export const Description = styled(Text)`
   line-height: ${({ theme }) => theme.font.lineHeight.medium};
+  font-weight: ${({ theme }) => theme.font.weight.semiBold};
 `
 export const Image = styled.img`
   width: auto;
@@ -68,7 +69,7 @@ export const WrapperHeroImage = styled.div`
 export const WrapperRatingHero = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.xsmall};
+  gap: ${({ theme }) => theme.spacing.small};
 `
 export const WrapperFilmAndComics = styled.div`
   display: flex;

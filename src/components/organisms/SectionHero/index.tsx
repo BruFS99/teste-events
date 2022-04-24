@@ -26,16 +26,27 @@ import {
 interface ISectionHeroProps {
   hero: IHero | null
   dateLastComic: string
+  onChangeFavorite: Function
+  isFavorite: boolean
 }
 
-function SectionHero({ hero, dateLastComic }: ISectionHeroProps) {
+function SectionHero({
+  hero,
+  onChangeFavorite,
+  isFavorite,
+  dateLastComic,
+}: ISectionHeroProps) {
   return (
     <Container>
       {/* <BackgroundName>{String(hero?.name).toUpperCase()}</BackgroundName> */}
       <WrapperHeroInfo>
         <WrapperNameAndFavorite>
           <Name>{hero?.name}</Name>
-          <ToggleFavorite initialValue onChange={() => {}} size="30px" />
+          <ToggleFavorite
+            initialValue={isFavorite}
+            onChange={onChangeFavorite}
+            size="30px"
+          />
         </WrapperNameAndFavorite>
         <Description>{hero?.description}</Description>
 
