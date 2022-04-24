@@ -1,12 +1,13 @@
 import api from 'api'
 
+interface IThumbnail {
+  path: string
+  extension: string
+}
 export interface IHero {
   id: number
   name: string
-  thumbnail: {
-    path: string
-    extension: string
-  }
+  thumbnail: IThumbnail
   description: string
   isFavorite: boolean
   comics: {
@@ -23,6 +24,29 @@ export interface IHeroResponse {
     limit: string
     offset: string
     results: IHero[]
+  }
+}
+
+export interface IComicDate {
+  type: 'onsaleDate' | 'focDate'
+  date: string
+}
+export interface IComic {
+  id: string
+  title: string
+  variantDescription: string
+  thumbnail: IThumbnail
+  dates: IComicDate[]
+  modified: string
+}
+
+export interface IComicsResponse {
+  data: {
+    offset: string
+    limit: string
+    total: string
+    count: string
+    results: IComic[]
   }
 }
 
