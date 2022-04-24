@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 
 import OrderByName from 'components/molecules/OrderByName'
@@ -9,46 +8,28 @@ import useHeroes from 'hooks/useHeroes'
 import useFavoriteHeroes from 'store/ducks/FavoriteHeroes/useFavoritesHeroes'
 import useOrderByName from 'components/organisms/SectionHeroes/hooks/useOrderByName'
 
-import { IHero } from 'services/Hero'
-import { IRootState } from 'store/ducks/rootReducer'
-
 import { Container, Header, WrapperActions, TextInfo } from './styles'
 import useFavoritesVisible from './hooks/useFavoritesVisible'
 import useHeroesVisible from './hooks/useHeroesVisible'
 
 function SectionHeroes() {
   const [searchParams] = useSearchParams()
-
-  const { OrderByListHeroes, FavoriteHeroes } = useSelector(
-    (state: IRootState) => state
-  )
-  const { orderBy } = OrderByListHeroes
-  const { favorites: favoriteHeroes } = FavoriteHeroes
-
   const search = searchParams.get('search')
 
+  const { handleToggleOrderByName, isOrderByName } = useOrderByName()
+
   const { heroes, loading, error } = useHeroes({
-    orderBy,
+    orderBy: isOrderByName ? 'name' : '-name',
     search,
   })
 
-  const { handleAddFavoriteHero, handleRemoveFavoriteHero } =
+  const { favorites: favoriteHeroes, handleFavoriteChange } =
     useFavoriteHeroes()
-
-  const { handleToggleOrderByName, isOrderByName } = useOrderByName()
 
   const {
     isVisible: favoriteHeroesIsVisible,
     handleToggle: handleToggleVisibleFavoritHeroes,
   } = useFavoritesVisible()
-
-  const handleFavoriteChange = (hero: IHero, newValueFavorite: boolean) => {
-    if (newValueFavorite) {
-      handleAddFavoriteHero(hero)
-    } else {
-      handleRemoveFavoriteHero(hero.id)
-    }
-  }
 
   const { listHeroes } = useHeroesVisible({
     favoriteHeroes,
