@@ -34,7 +34,12 @@ function getHeroById(id: string) {
   return api.get(`/characters/${id}`)
 }
 
+function getHeroComics(id: string, params?: Object) {
+  return api.get(`/characters/${id}/comics`, params)
+}
+
 export default {
   getHeroes,
   getHeroById,
+  getHeroComics,
 }
