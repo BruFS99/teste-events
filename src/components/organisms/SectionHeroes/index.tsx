@@ -1,3 +1,4 @@
+import { useSearchParams } from 'react-router-dom'
 import OrderByName from 'components/molecules/OrderByName'
 import OnlyFavorites from 'components/molecules/OnlyFavorites'
 import ListHeroes from 'components/molecules/ListHeroes'
@@ -10,10 +11,15 @@ import { IRootState } from 'store/ducks/rootReducer'
 import { Container, Header, WrapperActions, TextInfo } from './styles'
 
 function SectionHeroes() {
-  const { OrderByListHeroes } = useSelector((state: IRootState) => state)
+  const [searchParams] = useSearchParams()
   const { orderBy } = OrderByListHeroes
 
-  const { heroes, loading, error } = useHeroes({ orderBy })
+  const search = searchParams.get('search')
+
+  const { heroes, loading, error } = useHeroes({
+    orderBy,
+    search,
+  })
 
   return (
     <Container>
