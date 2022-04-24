@@ -21,3 +21,11 @@ export const Container = styled.div`
     grid-template-columns: repeat(1, 1fr);
   }
 `
+export const ContainerLoading = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  width: 100%;
+`

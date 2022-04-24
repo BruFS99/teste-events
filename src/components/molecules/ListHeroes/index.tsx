@@ -1,8 +1,9 @@
+import Loading from 'components/atoms/Loading'
 import HeroCard from 'components/molecules/HeroCard'
 
 import { IHero } from 'services/Hero'
 
-import { Container } from './styles'
+import { Container, ContainerLoading } from './styles'
 
 interface IListHeroes {
   loading: boolean
@@ -13,7 +14,11 @@ interface IListHeroes {
 
 function ListHeroes({ heroes, loading, error, onChangeFavorite }: IListHeroes) {
   if (loading) {
-    return <h3>Loading...</h3>
+    return (
+      <ContainerLoading>
+        <Loading />
+      </ContainerLoading>
+    )
   }
 
   if (error) {
