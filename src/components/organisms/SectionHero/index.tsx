@@ -44,7 +44,9 @@ function SectionHero({
           <Name>{hero?.name}</Name>
           <ToggleFavorite
             initialValue={isFavorite}
-            onChange={onChangeFavorite}
+            onChange={(newValueFavorite: boolean) =>
+              onChangeFavorite(hero, newValueFavorite)
+            }
             size="30px"
           />
         </WrapperNameAndFavorite>
