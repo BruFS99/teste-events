@@ -5,6 +5,14 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.large};
+
+  cursor: pointer;
+
+  transition: 0.5s;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `
 
 export const Image = styled.img`
