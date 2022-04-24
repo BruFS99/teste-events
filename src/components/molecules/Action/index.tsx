@@ -11,12 +11,14 @@ interface IActionsProps {
 }
 
 function Action({ initialValue, text, source, onChange }: IActionsProps) {
+  const component = <Icon src={source} onClick={() => onChange()} />
+
   return (
     <Container>
       <Toggle
-        initialValue={initialValue}
-        activeComponent={<Icon src={source} />}
-        disabledComponent={<Icon src={source} />}
+        value={initialValue}
+        activeComponent={component}
+        disabledComponent={component}
         onChange={onChange}
       />
       <Label>{text}</Label>

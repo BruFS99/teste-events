@@ -12,7 +12,7 @@ interface IToggleFavoriteProps {
 function ToggleFavorite({ initialValue, onChange }: IToggleFavoriteProps) {
   return (
     <Toggle
-      initialValue={initialValue}
+      value={initialValue}
       activeComponent={<Icon src={EmptyHeartIcon} size="14px" />}
       disabledComponent={<Icon src={FullHeartIcon} size="14px" />}
       onChange={onChange}
