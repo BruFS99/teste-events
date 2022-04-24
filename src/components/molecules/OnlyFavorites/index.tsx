@@ -14,7 +14,7 @@ function OnlyFavorites({ value, onChange }: IOnlyFavoritesProps) {
   const source = value ? FullHeartIcon : EmptyHeartIcon
 
   return (
-    <Container>
+    <Container onClick={() => onChange()}>
       <Action
         initialValue={value}
         text="Somente favoritos"
