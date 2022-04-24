@@ -8,6 +8,9 @@ import ListComics from 'components/organisms/ListComics'
 
 import useHero from 'hooks/useHero'
 import useHeroComics from 'hooks/useHeroComics'
+import useFavoriteHeroes from 'store/ducks/FavoriteHeroes/useFavoritesHeroes'
+
+import { IHero } from 'services/Hero'
 
 import { Container, ContainerLoading } from './styles'
 
@@ -16,6 +19,12 @@ function HeroDetails() {
 
   const { hero, loading } = useHero({ id })
   const { comics, dateLastComic } = useHeroComics({ id })
+
+  const { favorites, handleFavoriteChange } = useFavoriteHeroes()
+
+  const findHeroById = (heroFavorite: IHero) => String(heroFavorite.id) === id
+
+  const isFavorite = Boolean(favorites.find(findHeroById))
 
   if (loading) {
     return (
@@ -29,8 +38,8 @@ function HeroDetails() {
     <HeroDetailsLayout>
       <Container>
         <SectionHero
-          isFavorite={false}
-          onChangeFavorite={() => console.log('uai')}
+          isFavorite={isFavorite}
+          onChangeFavorite={handleFavoriteChange}
           hero={hero}
           dateLastComic={dateLastComic}
         />
