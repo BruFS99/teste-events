@@ -1,5 +1,3 @@
-import { useSearchParams } from 'react-router-dom'
-
 import OrderByName from 'components/molecules/OrderByName'
 import OnlyFavorites from 'components/molecules/OnlyFavorites'
 import ListHeroes from 'components/molecules/ListHeroes'
@@ -8,12 +6,14 @@ import useHeroes from 'hooks/useHeroes'
 import useFavoriteHeroes from 'store/ducks/FavoriteHeroes/useFavoritesHeroes'
 import useOrderByName from 'components/organisms/SectionHeroes/hooks/useOrderByName'
 
-import { Container, Header, WrapperActions, TextInfo } from './styles'
+import useSearch from 'hooks/useSearch'
 import useFavoritesVisible from './hooks/useFavoritesVisible'
 import useHeroesVisible from './hooks/useHeroesVisible'
 
+import { Container, Header, WrapperActions, TextInfo } from './styles'
+
 function SectionHeroes() {
-  const [searchParams] = useSearchParams()
+  const { searchParams } = useSearch()
   const search = searchParams.get('search')
 
   const { handleToggleOrderByName, isOrderByName } = useOrderByName()
