@@ -2,43 +2,33 @@ import OrderByName from 'components/molecules/OrderByName'
 import OnlyFavorites from 'components/molecules/OnlyFavorites'
 import ListHeroes from 'components/molecules/ListHeroes'
 
-import useHeroes from 'hooks/useHeroes'
-import useFavoriteHeroes from 'store/ducks/FavoriteHeroes/useFavoritesHeroes'
-import useOrderByName from 'components/organisms/SectionHeroes/hooks/useOrderByName'
-
-import useSearch from 'hooks/useSearch'
-import useFavoritesVisible from './hooks/useFavoritesVisible'
-import useHeroesVisible from './hooks/useHeroesVisible'
+import { IHero } from 'services/Hero'
 
 import { Container, Header, WrapperActions, TextInfo } from './styles'
 
-function SectionHeroes() {
-  const { searchParams } = useSearch()
-  const search = searchParams.get('search')
+interface ISectionHeroesProps {
+  listHeroes: IHero[]
+  isOrderByName: boolean
+  loading: boolean
+  error: boolean
+  favoriteHeroesIsVisible: boolean
+  handleToggleOrderByName: Function
+  handleToggleVisibleFavoritHeroes: Function
+  handleFavoriteChange: Function
+  handleClickHeroCard: Function
+}
 
-  const { handleToggleOrderByName, isOrderByName } = useOrderByName()
-
-  const { heroes, loading, error } = useHeroes({
-    orderBy: isOrderByName ? 'name' : '-name',
-    search,
-  })
-
-  const { favorites: favoriteHeroes, handleFavoriteChange } =
-    useFavoriteHeroes()
-
-  const {
-    isVisible: favoriteHeroesIsVisible,
-    handleToggle: handleToggleVisibleFavoritHeroes,
-  } = useFavoritesVisible()
-
-  const { listHeroes, handleClickHeroCard } = useHeroesVisible({
-    favoriteHeroes,
-    heroes,
-    favoriteHeroesIsVisible,
-    isOrderByName,
-    search,
-  })
-
+function SectionHeroes({
+  listHeroes,
+  isOrderByName,
+  loading,
+  error,
+  handleToggleOrderByName,
+  favoriteHeroesIsVisible,
+  handleToggleVisibleFavoritHeroes,
+  handleFavoriteChange,
+  handleClickHeroCard,
+}: ISectionHeroesProps) {
   return (
     <Container>
       <Header>

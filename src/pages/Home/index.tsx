@@ -4,10 +4,42 @@ import HomeLayout from 'layout/Home'
 
 import useSearch from 'hooks/useSearch'
 
+import useOrderByName from 'components/organisms/SectionHeroes/hooks/useOrderByName'
+import useHeroes from 'hooks/useHeroes'
+import useFavoriteHeroes from 'store/ducks/FavoriteHeroes/useFavoritesHeroes'
+import useFavoritesVisible from 'components/organisms/SectionHeroes/hooks/useFavoritesVisible'
+import useHeroesVisible from 'components/organisms/SectionHeroes/hooks/useHeroesVisible'
+
 import { Content, WrapperForm } from './styles'
 
 function Home() {
   const { handleSubmit } = useSearch()
+
+  const { searchParams } = useSearch()
+  const search = searchParams.get('search')
+
+  const { handleToggleOrderByName, isOrderByName } = useOrderByName()
+
+  const { heroes, loading, error } = useHeroes({
+    orderBy: isOrderByName ? 'name' : '-name',
+    search,
+  })
+
+  const { favorites: favoriteHeroes, handleFavoriteChange } =
+    useFavoriteHeroes()
+
+  const {
+    isVisible: favoriteHeroesIsVisible,
+    handleToggle: handleToggleVisibleFavoritHeroes,
+  } = useFavoritesVisible()
+
+  const { listHeroes, handleClickHeroCard } = useHeroesVisible({
+    favoriteHeroes,
+    heroes,
+    favoriteHeroesIsVisible,
+    isOrderByName,
+    search,
+  })
 
   return (
     <HomeLayout>
@@ -15,7 +47,17 @@ function Home() {
         <WrapperForm>
           <FormSearch onSubmit={handleSubmit} />
         </WrapperForm>
-        <SectionHeroes />
+        <SectionHeroes
+          listHeroes={listHeroes}
+          isOrderByName={isOrderByName}
+          loading={loading}
+          error={error}
+          handleToggleOrderByName={handleToggleOrderByName}
+          favoriteHeroesIsVisible={favoriteHeroesIsVisible}
+          handleToggleVisibleFavoritHeroes={handleToggleVisibleFavoritHeroes}
+          handleFavoriteChange={handleFavoriteChange}
+          handleClickHeroCard={handleClickHeroCard}
+        />
       </Content>
     </HomeLayout>
   )

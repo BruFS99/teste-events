@@ -8,14 +8,14 @@ import { Container, ToggleIcon } from './styles'
 
 interface IOrderByNameProps {
   value: boolean
-  handleClick: () => void
+  handleClick: Function
 }
 
 function OrderByName({ value, handleClick }: IOrderByNameProps) {
   const source = value ? ToggleOn : ToggleOff
 
   return (
-    <Container onClick={handleClick}>
+    <Container onClick={() => handleClick()}>
       <Action
         initialValue={value}
         text="Ordenar por nome - A/Z"
