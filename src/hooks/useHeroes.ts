@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AxiosResponse } from 'axios'
 
-import HeroService, { IListHeroResponse, IHero } from 'services/Hero'
+import HeroService, { IHeroResponse, IHero } from 'services/Hero'
 
 interface IUserHeroes {
   orderBy?: string
@@ -13,7 +13,7 @@ function useHeroes({ orderBy = 'name', search = null }: IUserHeroes) {
   const [error, setError] = useState(false)
   const [heroes, setHeroes] = useState<IHero[]>([])
 
-  const handleSuccess = (response: AxiosResponse<IListHeroResponse>) => {
+  const handleSuccess = (response: AxiosResponse<IHeroResponse>) => {
     const { data } = response
     const { results } = data.data
 
