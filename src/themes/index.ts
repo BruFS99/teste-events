@@ -1,7 +1,7 @@
 const theme = {
   colors: {
     red: '#FE1211',
-    gray: '#5F5F5F',
+    gray: '#404040',
     grayLight: '#bcbcbc',
     grayMedium: '#8c8c8c',
     pink: '#FBAFAF',
@@ -15,6 +15,7 @@ const theme = {
     small: '20px',
     medium: '24px',
     large: '30px',
+    xlarge: '48px',
   },
   padding: {
     nano: '6px',
@@ -38,7 +39,7 @@ const theme = {
       xxxlarge: '56px',
     },
     weight: {
-      black: 900,
+      black: 800,
       bold: 700,
       semiBold: 500,
       regular: 400,
