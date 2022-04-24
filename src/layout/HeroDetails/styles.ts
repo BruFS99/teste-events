@@ -7,7 +7,8 @@ export const Container = styled.div`
   min-height: 100vh;
   width: 100%;
 
-  background: rgba(0, 255, 0, 0.3);
+  // Por conta das imagens, deixei nesta cor default, infelizmente não achei as props de cores do personagem
+  background: rgba(0, 0, 0, 0.06);
 `
 
 export const Content = styled.div`
