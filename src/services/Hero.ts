@@ -7,10 +7,11 @@ export interface IHero {
     path: string
     extension: string
   }
+  description: string
   isFavorite: boolean
 }
 
-export interface IListHeroResponse {
+export interface IHeroResponse {
   data: {
     count: string
     limit: string
@@ -23,6 +24,11 @@ function getHeroes(params?: Object) {
   return api.get('/characters', { params })
 }
 
+function getHeroById(id: string) {
+  return api.get(`/characters/${id}`)
+}
+
 export default {
   getHeroes,
+  getHeroById,
 }
