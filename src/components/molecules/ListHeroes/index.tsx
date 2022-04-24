@@ -1,9 +1,10 @@
+import Error from 'components/atoms/Error'
 import Loading from 'components/atoms/Loading'
 import HeroCard from 'components/molecules/HeroCard'
 
 import { IHero } from 'services/Hero'
 
-import { Container, ContainerLoading } from './styles'
+import { Container, WrapperAvailableSpace } from './styles'
 
 interface IListHeroes {
   loading: boolean
@@ -15,14 +16,18 @@ interface IListHeroes {
 function ListHeroes({ heroes, loading, error, onChangeFavorite }: IListHeroes) {
   if (loading) {
     return (
-      <ContainerLoading>
+      <WrapperAvailableSpace>
         <Loading />
-      </ContainerLoading>
+      </WrapperAvailableSpace>
     )
   }
 
   if (error) {
-    return <h3>Error</h3>
+    return (
+      <WrapperAvailableSpace>
+        <Error text="Houve um erro ao tentar buscar os dados." />
+      </WrapperAvailableSpace>
+    )
   }
 
   return (
