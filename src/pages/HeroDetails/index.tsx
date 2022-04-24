@@ -1,8 +1,15 @@
 import { useParams } from 'react-router-dom'
 
+import HeroDetailsLayout from 'layout/HeroDetails'
+
 function HeroDetails() {
   const params = useParams()
-  return <div>HeroDetails: {params.id}</div>
+
+  return (
+    <HeroDetailsLayout>
+      <div>HeroDetails: {params.id}</div>
+    </HeroDetailsLayout>
+  )
 }
 
 export default HeroDetails
