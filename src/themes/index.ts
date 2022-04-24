@@ -29,7 +29,7 @@ const theme = {
       primary: '"Work Sans", sans-serif',
     },
     size: {
-      xsmall: '10px',
+      xsmall: '12px',
       small: '14px',
       medium: '16px',
       large: '20px',
