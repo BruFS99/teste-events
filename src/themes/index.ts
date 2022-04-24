@@ -35,6 +35,7 @@ const theme = {
       large: '20px',
       xlarge: '36px',
       xxlarge: '48px',
+      xxxlarge: '56px',
     },
     weight: {
       black: 900,
@@ -42,6 +43,9 @@ const theme = {
       semiBold: 500,
       regular: 400,
       light: 300,
+    },
+    lineHeight: {
+      medium: '24px',
     },
   },
   border: {
