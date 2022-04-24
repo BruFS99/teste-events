@@ -18,14 +18,16 @@ function HeroCard({
   onFavoriteChange,
   onClick,
 }: ICardProps) {
+  const handleClick = () => onClick(id)
+
   return (
-    <Container onClick={() => onClick(id)}>
-      <WrapperImage>
+    <Container>
+      <WrapperImage onClick={handleClick}>
         <Image src={src} alt={name} />
         <Bar />
       </WrapperImage>
       <HeroInfo>
-        <Name>{name}</Name>
+        <Name onClick={handleClick}>{name}</Name>
         <ToggleFavorite initialValue={isFavorite} onChange={onFavoriteChange} />
       </HeroInfo>
     </Container>
