@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { IHero } from 'services/Hero'
 
 interface IUseHeroesVisible {
@@ -16,6 +17,7 @@ function useHeroesVisible({
   isOrderByName,
   search,
 }: IUseHeroesVisible) {
+  const navigate = useNavigate()
   const [listHeroes, setListHeroes] = useState<IHero[]>([])
 
   const hasSearch = search && favoriteHeroesIsVisible
@@ -56,12 +58,17 @@ function useHeroesVisible({
     setListHeroes(heroesFormatted)
   }
 
+  const handleClickHeroCard = (id: number) => {
+    navigate(`/hero/${id}`)
+  }
+
   useEffect(() => {
     getHeroesVisible()
   }, [favoriteHeroesIsVisible, favoriteHeroes, heroes, isOrderByName])
 
   return {
     listHeroes,
+    handleClickHeroCard,
   }
 }
 

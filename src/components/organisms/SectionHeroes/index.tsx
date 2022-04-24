@@ -31,7 +31,7 @@ function SectionHeroes() {
     handleToggle: handleToggleVisibleFavoritHeroes,
   } = useFavoritesVisible()
 
-  const { listHeroes } = useHeroesVisible({
+  const { listHeroes, handleClickHeroCard } = useHeroesVisible({
     favoriteHeroes,
     heroes,
     favoriteHeroesIsVisible,
@@ -59,6 +59,7 @@ function SectionHeroes() {
         loading={loading}
         error={error}
         onChangeFavorite={handleFavoriteChange}
+        onClick={handleClickHeroCard}
       />
     </Container>
   )
