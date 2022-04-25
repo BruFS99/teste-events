@@ -6,6 +6,11 @@ export const Container = styled.div`
 
   min-height: 100vh;
   width: 100%;
+
+  @media (max-width: 1400px) {
+    padding: ${({ theme }) => theme.padding.small}
+      ${({ theme }) => theme.padding.xsmall};
+  }
 `
 
 export const Content = styled.div`
@@ -22,8 +27,6 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 1400px) {
-    padding: ${({ theme }) => theme.padding.small}
-      ${({ theme }) => theme.padding.xsmall};
-  }
+  height: 100%;
+  width: 100%;
 `

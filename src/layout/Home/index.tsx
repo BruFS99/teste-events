@@ -3,7 +3,7 @@ import React from 'react'
 import Footer from 'layout/components/Footer'
 import Header from './components/Header'
 
-import { Container, Content, Wrapper } from './styles'
+import { Container, Content } from './styles'
 
 interface IProps {
   children: React.ReactNode
@@ -11,13 +11,13 @@ interface IProps {
 
 function HomeLayout({ children }: IProps) {
   return (
-    <Container>
-      <Wrapper>
+    <>
+      <Container>
         <Header />
         <Content>{children}</Content>
-      </Wrapper>
+      </Container>
       <Footer />
-    </Container>
+    </>
   )
 }
 
