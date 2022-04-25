@@ -56,6 +56,20 @@ function useHeroes({
     return params
   }
 
+  const getDefaultParamsFetch = () => {
+    const params = getParamsFetch()
+    return { ...params, offset: 0 }
+  }
+
+  const getUpdateParamsFetch = () => {
+    const params = getParamsFetch()
+
+    const newOffset = offset + (limit || 0)
+    const newParams = { ...params, offset: newOffset }
+
+    return newParams
+  }
+
   const fetchData = (params?: Object) => HeroService.getHeroes(params)
 
   const handleAddHeroes = (
@@ -86,13 +100,11 @@ function useHeroes({
 
     setLoadingMore(true)
 
-    const params = getParamsFetch()
-
-    const newOffset = offset + limit
-    const newParams = { ...params, offset: newOffset }
-
+    const params = getUpdateParamsFetch()
+    const { offset: newOffset } = params
     setOffset(newOffset)
-    getAndSetData(newParams, true).finally(handleFinallyLoadingMore)
+
+    getAndSetData(params, true).finally(handleFinallyLoadingMore)
   }
 
   const getNextPage = () => {
@@ -102,11 +114,11 @@ function useHeroes({
   const firstFetch = () => {
     setLoading(true)
 
-    const params = getParamsFetch()
-    const newParams = { ...params, offset: 0 }
+    // essa parte aqui ta uma vergonha, mas não consegui pensar um bom jeito de codar isso
+    const params = getDefaultParamsFetch()
     setOffset(0)
 
-    getAndSetData(newParams).finally(handleFinally)
+    getAndSetData(params).finally(handleFinally)
   }
 
   useEffect(() => {
