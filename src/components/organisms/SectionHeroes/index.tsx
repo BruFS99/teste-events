@@ -16,6 +16,7 @@ interface ISectionHeroesProps {
   handleToggleVisibleFavoritHeroes: Function
   handleFavoriteChange: Function
   handleClickHeroCard: Function
+  totalHeroes: number
 }
 
 function SectionHeroes({
@@ -28,11 +29,12 @@ function SectionHeroes({
   handleToggleVisibleFavoritHeroes,
   handleFavoriteChange,
   handleClickHeroCard,
+  totalHeroes = 0,
 }: ISectionHeroesProps) {
   return (
     <Container>
       <Header>
-        <TextInfo>Encontrados {listHeroes.length} heróis</TextInfo>
+        <TextInfo>Encontrados {totalHeroes} heróis</TextInfo>
         <WrapperActions>
           <OrderByName
             value={isOrderByName}
