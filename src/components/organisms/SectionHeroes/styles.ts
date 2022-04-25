@@ -25,4 +25,6 @@ export const WrapperActions = styled.div`
 export const TextInfo = styled(Text)`
   color: ${({ theme }) => theme.colors.grayLight};
   font-size: ${({ theme }) => theme.font.size.medium};
+  font-weight: ${({ theme }) => theme.font.weight.regular};
+  letter-spacing: 1px;
 `
