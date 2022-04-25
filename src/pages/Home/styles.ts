@@ -11,5 +11,6 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
 
+  gap: ${({ theme }) => theme.spacing.medium};
   width: 100%;
 `

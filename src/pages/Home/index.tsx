@@ -1,6 +1,8 @@
+import HomeLayout from 'layout/Home'
+
+import Button from 'components/atoms/Button'
 import FormSearch from 'components/molecules/FormSearch'
 import SectionHeroes from 'components/organisms/SectionHeroes'
-import HomeLayout from 'layout/Home'
 
 import useSearch from 'hooks/useSearch'
 
@@ -22,6 +24,10 @@ function Home() {
   const { handleToggleOrderByName, isOrderByName } = useOrderByName()
 
   const { getNextPage, total, heroes, loading, error, hasMore, loadingMore } =
+    useHeroes({
+      orderBy: isOrderByName ? 'name' : '-name',
+      search,
+    })
 
   const { favorites: favoriteHeroes, handleFavoriteChange } =
     useFavoriteHeroes()
@@ -39,6 +45,9 @@ function Home() {
     search,
   })
 
+  const showLoadMore =
+    !favoriteHeroesIsVisible && hasMore && !loading && !loadingMore
+
   const totalHeroes = favoriteHeroesIsVisible ? listHeroes.length : total
 
   return (
@@ -52,6 +61,7 @@ function Home() {
           listHeroes={listHeroes}
           isOrderByName={isOrderByName}
           loading={loading}
+          loadingMore={loadingMore}
           error={error}
           handleToggleOrderByName={handleToggleOrderByName}
           favoriteHeroesIsVisible={favoriteHeroesIsVisible}
@@ -59,6 +69,9 @@ function Home() {
           handleFavoriteChange={handleFavoriteChange}
           handleClickHeroCard={handleClickHeroCard}
         />
+        {showLoadMore ? (
+          <Button onClick={getNextPage}>Carregar mais</Button>
+        ) : null}
       </Content>
     </HomeLayout>
   )
