@@ -27,7 +27,7 @@ const theme = {
   },
   font: {
     family: {
-      primary: '"Work Sans", sans-serif',
+      primary: '"Roboto", sans-serif',
     },
     size: {
       xsmall: '12px',
