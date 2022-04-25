@@ -4,7 +4,7 @@ import SubTitle from 'components/atoms/Subtitle'
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.large};
+  gap: ${({ theme }) => theme.spacing.medium};
 
   cursor: pointer;
 
@@ -17,7 +17,7 @@ export const Container = styled.div`
 
 export const Image = styled.img`
   width: 100%;
-  height: 335px;
+  height: 300px;
 `
 
 export const Bar = styled.div`
@@ -30,7 +30,7 @@ export const WrapperImage = styled.div`
   flex-direction: column;
 `
 export const Name = styled(SubTitle)`
-  font-size: ${({ theme }) => theme.font.size.small};
+  font-size: ${({ theme }) => theme.font.size.medium};
 `
 export const HeroInfo = styled.div`
   display: flex;

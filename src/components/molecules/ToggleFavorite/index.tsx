@@ -15,7 +15,7 @@ function ToggleFavorite({
   onChange,
   size,
 }: IToggleFavoriteProps) {
-  const sizeIcon = size || '14px'
+  const sizeIcon = size || '18px'
 
   return (
     <Toggle
