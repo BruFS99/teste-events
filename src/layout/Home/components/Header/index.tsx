@@ -1,7 +1,6 @@
 import Logo from 'assets/logo.svg'
-import Text from 'components/atoms/Text'
 
-import { Image, Container, SubTitle } from './styles'
+import { Image, Container, SubTitle, Text } from './styles'
 
 function Header() {
   return (
