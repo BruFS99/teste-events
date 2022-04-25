@@ -23,4 +23,5 @@ export const Wrapper = styled.div`
 
 export const TextInfo = styled(SubTitle)`
   font-size: ${({ theme }) => theme.font.size.medium};
+  font-weight: ${({ theme }) => theme.font.weight.normal};
 `
