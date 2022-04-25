@@ -52,6 +52,7 @@ const theme = {
   },
   border: {
     radius: {
+      xsmall: '6px',
       medium: '24px',
     },
   },
