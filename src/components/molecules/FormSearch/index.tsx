@@ -8,9 +8,14 @@ interface IFormSearchProps {
   // eslint-disable-next-line no-unused-vars
   onSubmit: (heroSearch: string) => void
   isLight?: boolean
+  initialValue?: string
 }
 
-function FormSearch({ onSubmit, isLight = false }: IFormSearchProps) {
+function FormSearch({
+  initialValue = '',
+  onSubmit,
+  isLight = false,
+}: IFormSearchProps) {
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
@@ -22,6 +27,7 @@ function FormSearch({ onSubmit, isLight = false }: IFormSearchProps) {
     <Form onSubmit={handleSubmit}>
       <IconSearch src={SearchBar} />
       <InputSearch
+        defaultValue={initialValue || ''}
         isLight={Boolean(isLight)}
         name="heroSearch"
         placeholder="Procure por heróis"
