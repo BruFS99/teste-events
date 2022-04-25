@@ -24,6 +24,7 @@ export interface IHeroResponse {
     limit: string
     offset: string
     results: IHero[]
+    total: number
   }
 }
 
