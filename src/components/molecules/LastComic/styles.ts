@@ -16,4 +16,5 @@ export const Container = styled.div`
 
 export const Value = styled(SubTitle)`
   font-size: ${({ theme }) => theme.font.size.xsmall};
+  font-weight: ${({ theme }) => theme.font.weight.normal};
 `
