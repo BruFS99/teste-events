@@ -11,13 +11,15 @@ interface IProps {
 
 function HeroDetailsLayout({ children }: IProps) {
   return (
-    <Container>
-      <WrapperHeader>
-        <Header />
-      </WrapperHeader>
-      <Content>{children}</Content>
+    <>
+      <Container>
+        <WrapperHeader>
+          <Header />
+        </WrapperHeader>
+        <Content>{children}</Content>
+      </Container>
       <Footer />
-    </Container>
+    </>
   )
 }
 

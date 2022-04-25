@@ -9,6 +9,11 @@ export const Container = styled.div`
 
   // Por conta das imagens, deixei nesta cor default, infelizmente não achei as props de cores do personagem
   background: rgba(0, 0, 0, 0.06);
+
+  @media (max-width: 1400px) {
+    padding: ${({ theme }) => theme.padding.small}
+      ${({ theme }) => theme.padding.xsmall};
+  }
 `
 
 export const Content = styled.div`
