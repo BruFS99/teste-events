@@ -15,11 +15,21 @@ export const Header = styled.header`
   align-items: center;
 
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: ${({ theme }) => theme.spacing.small};
+  }
 `
 
 export const WrapperActions = styled.div`
   display: flex;
   gap: ${({ theme }) => theme.spacing.small};
+
+  @media (max-width: 768px) {
+    gap: ${({ theme }) => theme.spacing.quark};
+    flex-direction: column;
+  }
 `
 
 export const TextInfo = styled(Text)`
