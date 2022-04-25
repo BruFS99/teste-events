@@ -21,10 +21,7 @@ function Home() {
 
   const { handleToggleOrderByName, isOrderByName } = useOrderByName()
 
-  const { heroes, loading, error } = useHeroes({
-    orderBy: isOrderByName ? 'name' : '-name',
-    search,
-  })
+  const { getNextPage, total, heroes, loading, error, hasMore, loadingMore } =
 
   const { favorites: favoriteHeroes, handleFavoriteChange } =
     useFavoriteHeroes()
@@ -42,6 +39,8 @@ function Home() {
     search,
   })
 
+  const totalHeroes = favoriteHeroesIsVisible ? listHeroes.length : total
+
   return (
     <HomeLayout>
       <Content>
@@ -49,6 +48,7 @@ function Home() {
           <FormSearch initialValue={initialValue} onSubmit={handleSubmit} />
         </WrapperForm>
         <SectionHeroes
+          totalHeroes={totalHeroes}
           listHeroes={listHeroes}
           isOrderByName={isOrderByName}
           loading={loading}
