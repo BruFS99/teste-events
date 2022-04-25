@@ -4,11 +4,11 @@ import HomeLayout from 'layout/Home'
 
 import useSearch from 'hooks/useSearch'
 
-import useOrderByName from 'components/organisms/SectionHeroes/hooks/useOrderByName'
+import useOrderByName from 'hooks/useOrderByName'
 import useHeroes from 'hooks/useHeroes'
 import useFavoriteHeroes from 'store/ducks/FavoriteHeroes/useFavoritesHeroes'
-import useFavoritesVisible from 'components/organisms/SectionHeroes/hooks/useFavoritesVisible'
-import useHeroesVisible from 'components/organisms/SectionHeroes/hooks/useHeroesVisible'
+import useFavoritesVisible from 'hooks/useFavoritesVisible'
+import useHeroesVisible from 'hooks/useHeroesVisible'
 
 import { Content, WrapperForm } from './styles'
 
