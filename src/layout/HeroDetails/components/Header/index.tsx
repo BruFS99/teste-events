@@ -6,12 +6,16 @@ import Logo from 'assets/logo_menor.svg'
 import { Container, Brand } from './styles'
 
 function Header() {
-  const { handleSubmit } = useSearch()
+  const { handleSubmit, searchParams } = useSearch()
+
+  const search = searchParams.get('search')
+
+  const initialValue = search ? String(search) : ''
 
   return (
     <Container>
       <Brand src={Logo} alt="Logo marvel" />
-      <FormSearch onSubmit={handleSubmit} isLight />
+      <FormSearch initialValue={initialValue} onSubmit={handleSubmit} isLight />
     </Container>
   )
 }

@@ -17,6 +17,7 @@ function Home() {
 
   const { searchParams } = useSearch()
   const search = searchParams.get('search')
+  const initialValue = search ? String(search) : ''
 
   const { handleToggleOrderByName, isOrderByName } = useOrderByName()
 
@@ -45,7 +46,7 @@ function Home() {
     <HomeLayout>
       <Content>
         <WrapperForm>
-          <FormSearch onSubmit={handleSubmit} />
+          <FormSearch initialValue={initialValue} onSubmit={handleSubmit} />
         </WrapperForm>
         <SectionHeroes
           listHeroes={listHeroes}
