@@ -24,10 +24,9 @@ export const Container = styled.div`
     box-sizing: border-box;
     display: block;
     position: absolute;
-    width: 64px;
-    height: 64px;
-    margin: 8px;
-    border: 8px solid ${getColor};
+    width: ${getSizeLoading};
+    height: ${getSizeLoading};
+    border: 3px solid ${getColor};
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     border-color: ${getColor} transparent transparent transparent;
