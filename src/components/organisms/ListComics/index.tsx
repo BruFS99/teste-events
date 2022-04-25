@@ -1,3 +1,4 @@
+import Error from 'components/atoms/Error'
 import SubTitle from 'components/atoms/Subtitle'
 import ComicCard from 'components/molecules/ComicCard'
 import { IComic } from 'services/Hero'
@@ -17,12 +18,16 @@ function ListComics({ comics }: IListComicsProps) {
     <Container>
       <SubTitle>Últimos lançamentos</SubTitle>
       <WrapperList>
-        {comics.map((comic) => (
-          <ComicCard
-            {...comic}
-            src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-          />
-        ))}
+        {!comics.length ? (
+          <Error text="Não há informações sobre os ultimos lançamentos" />
+        ) : (
+          comics.map((comic) => (
+            <ComicCard
+              {...comic}
+              src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+            />
+          ))
+        )}
       </WrapperList>
     </Container>
   )
