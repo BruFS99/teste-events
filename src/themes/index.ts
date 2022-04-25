@@ -42,6 +42,7 @@ const theme = {
       black: 800,
       bold: 700,
       semiBold: 600,
+      normal: 500,
       regular: 400,
       light: 300,
     },
