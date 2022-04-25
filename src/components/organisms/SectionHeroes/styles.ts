@@ -38,3 +38,12 @@ export const TextInfo = styled(Text)`
   font-weight: ${({ theme }) => theme.font.weight.regular};
   letter-spacing: 1px;
 `
+
+export const WrapperLoading = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+`

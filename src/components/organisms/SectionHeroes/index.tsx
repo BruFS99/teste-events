@@ -1,15 +1,23 @@
+import Loading from 'components/atoms/Loading'
 import OrderByName from 'components/molecules/OrderByName'
 import OnlyFavorites from 'components/molecules/OnlyFavorites'
 import ListHeroes from 'components/molecules/ListHeroes'
 
 import { IHero } from 'services/Hero'
 
-import { Container, Header, WrapperActions, TextInfo } from './styles'
+import {
+  Container,
+  Header,
+  WrapperActions,
+  WrapperLoading,
+  TextInfo,
+} from './styles'
 
 interface ISectionHeroesProps {
   listHeroes: IHero[]
   isOrderByName: boolean
   loading: boolean
+  loadingMore?: boolean
   error: boolean
   favoriteHeroesIsVisible: boolean
   handleToggleOrderByName: Function
@@ -29,6 +37,7 @@ function SectionHeroes({
   handleToggleVisibleFavoritHeroes,
   handleFavoriteChange,
   handleClickHeroCard,
+  loadingMore,
   totalHeroes = 0,
 }: ISectionHeroesProps) {
   return (
@@ -53,6 +62,12 @@ function SectionHeroes({
         onChangeFavorite={handleFavoriteChange}
         onClick={handleClickHeroCard}
       />
+
+      {loadingMore ? (
+        <WrapperLoading>
+          <Loading size="18px" />
+        </WrapperLoading>
+      ) : null}
     </Container>
   )
 }
