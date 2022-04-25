@@ -51,7 +51,6 @@ function SectionHero({
           />
         </WrapperNameAndFavorite>
         <Description>{hero?.description}</Description>
-
         <WrapperRatingHero>
           <WrapperFilmAndComics>
             <HeroShortInfo

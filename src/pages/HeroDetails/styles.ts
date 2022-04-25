@@ -6,7 +6,9 @@ export const Container = styled.div`
 
   width: 100%;
   max-width: 1368px;
-  margin: ${({ theme }) => theme.spacing.medium} auto;
+  margin: ${({ theme }) => theme.spacing.xlarge} auto;
+
+  gap: ${({ theme }) => theme.spacing.xlarge};
 `
 export const ContainerLoading = styled.div`
   height: 100vh;

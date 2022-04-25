@@ -13,4 +13,8 @@ export const WrapperList = styled.div`
   flex-wrap: wrap;
 
   gap: ${({ theme }) => theme.spacing.xlarge};
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `

@@ -4,7 +4,11 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
 
-  gap: ${({ theme }) => theme.spacing.nano};
+  gap: ${({ theme }) => theme.spacing.medium};
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 export const Brand = styled.img`

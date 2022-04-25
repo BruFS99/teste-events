@@ -21,6 +21,14 @@ export const Container = styled.section`
   width: 100%;
 
   position: relative;
+
+  @media (max-width: 1400px) {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const Name = styled(SubTitle)`
@@ -35,6 +43,11 @@ export const Description = styled(Text)`
 export const Image = styled.img`
   width: auto;
   height: 400px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
 `
 export const BackgroundName = styled.div`
   font-size: 17em;
@@ -58,7 +71,7 @@ export const WrapperNameAndFavorite = styled.div`
 export const WrapperHeroInfo = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${getGap};
+  gap: ${({ theme }) => theme.spacing.large};
 `
 
 export const WrapperHeroImage = styled.div`
