@@ -37,6 +37,14 @@ function ListHeroes({
     )
   }
 
+  if (!heroes.length) {
+    return (
+      <WrapperAvailableSpace>
+        <Error text="Não achamos nenhum herói para os valores definidos" />
+      </WrapperAvailableSpace>
+    )
+  }
+
   return (
     <Container>
       {heroes.map((hero) => (
