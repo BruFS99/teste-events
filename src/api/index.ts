@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios'
 import generateKeyApi from 'utils/generateKeyApi'
 
 const api = axios.create({
-  baseURL: 'http://gateway.marvel.com/v1/public/',
+  baseURL: process.env.REACT_APP_BASE_URL,
 })
 
 api.interceptors.request.use(
