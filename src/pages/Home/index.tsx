@@ -1,6 +1,5 @@
 import HomeLayout from 'layout/Home'
 
-import Button from 'components/atoms/Button'
 import FormSearch from 'components/molecules/FormSearch'
 import SectionHeroes from 'components/organisms/SectionHeroes'
 
@@ -68,10 +67,9 @@ function Home() {
           handleToggleVisibleFavoritHeroes={handleToggleVisibleFavoritHeroes}
           handleFavoriteChange={handleFavoriteChange}
           handleClickHeroCard={handleClickHeroCard}
+          showLoadMore={showLoadMore}
+          getNextPage={getNextPage}
         />
-        {showLoadMore ? (
-          <Button onClick={getNextPage}>Carregar mais</Button>
-        ) : null}
       </Content>
     </HomeLayout>
   )

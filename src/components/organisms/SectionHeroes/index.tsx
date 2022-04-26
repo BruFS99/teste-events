@@ -1,3 +1,4 @@
+import Button from 'components/atoms/Button'
 import Loading from 'components/atoms/Loading'
 import OrderByName from 'components/molecules/OrderByName'
 import OnlyFavorites from 'components/molecules/OnlyFavorites'
@@ -25,6 +26,8 @@ interface ISectionHeroesProps {
   handleFavoriteChange: Function
   handleClickHeroCard: Function
   totalHeroes: number
+  showLoadMore: boolean
+  getNextPage?: Function
 }
 
 function SectionHeroes({
@@ -39,7 +42,17 @@ function SectionHeroes({
   handleClickHeroCard,
   loadingMore,
   totalHeroes = 0,
+  showLoadMore = false,
+  getNextPage,
 }: ISectionHeroesProps) {
+  const handleGetMore = () => {
+    if (!getNextPage) {
+      return
+    }
+
+    getNextPage()
+  }
+
   return (
     <Container>
       <Header>
@@ -62,6 +75,10 @@ function SectionHeroes({
         onChangeFavorite={handleFavoriteChange}
         onClick={handleClickHeroCard}
       />
+
+      {showLoadMore ? (
+        <Button onClick={handleGetMore}>Carregar mais</Button>
+      ) : null}
 
       {loadingMore ? (
         <WrapperLoading>
