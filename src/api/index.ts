@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios'
 import generateKeyApi from 'utils/generateKeyApi'
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL,
+  baseURL: process.env.REACT_APP_BASE_URL_API,
 })
 
 api.interceptors.request.use(
