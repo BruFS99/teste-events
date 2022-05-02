@@ -10,7 +10,7 @@ Para ver a versão de produção, clique [aqui](https://chrigor-marvel-hero-app.
 
 ##### Hero details Page
 
-![Projeto em ação](./src/assets/pages/print-home.png)
+![Projeto em ação](./src/assets/pages/hero-details.png)
 
 ### 📋 Pré-requisitos
 
