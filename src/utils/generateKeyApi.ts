@@ -1,4 +1,4 @@
-import { Md5 } from 'ts-md5/dist/md5'
+import { Md5 } from "ts-md5"
 
 function generateKeys() {
   const { REACT_APP_PUBLIC_KEY_API, REACT_APP_PRIVATE_KEY_API } = process.env
